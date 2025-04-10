@@ -18,7 +18,7 @@ function Register(){
                 email,
                 password,
                 role
-            });
+            },{withCredentials:true});
             console.log(res.data.message);
             setMessage(res.data.message);
 

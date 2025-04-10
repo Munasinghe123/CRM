@@ -1,9 +1,13 @@
+import { useSelector } from "react-redux";
 
 function FinancialPlaner() {
+
+  const { user } = useSelector((state) => state.user);
+
   return (
     <div>
-      <h1>Financial Planer</h1>
-      <p>This is the Financial Planer component.</p>
+      <h1>Financial Planer Dashboard</h1>
+      <p>Welcome {user.name}</p>
     </div>
   );
 }

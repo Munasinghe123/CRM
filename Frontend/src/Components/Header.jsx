@@ -6,7 +6,7 @@ import { logout } from "../Redux/UserSlice";
 
 
 function Header(){
-    const {isAuthenticated} = useSelector((state) => state.user);
+    const {isAuthenticated,role} = useSelector((state) => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -22,10 +22,27 @@ function Header(){
     }
     return(
         <>
-        <Link to='/register'>Register users</Link>
+            {isAuthenticated && role === 'admin' && (
+                <Link to='/register'>Register users</Link>
+            )}
+
+            {isAuthenticated && (role === 'financial_planner' || role === 'mortgage_broker') && (
+              <>
+                <Link to='/createTicket'>Create Ticket</Link>
+                <Link to='/viewTickets'>View Tickets</Link>
+              </>
+            )}
+
             {isAuthenticated ?
-            (<button onClick={handleLogout}>Logout</button>):
-            (<Link to='/login'><button>Login</button></Link>) }    
+            (<>
+              <button onClick={handleLogout}>Logout</button>
+            </>
+            ):
+            (
+              <>
+                <Link to='/login'><button>Login</button></Link>
+              </>
+            )}  
         </>
     )
 

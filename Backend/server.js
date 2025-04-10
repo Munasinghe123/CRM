@@ -18,6 +18,10 @@ app.use(express.json());
 const userRoutes = require('./Routes/UserRoutes');
 app.use('/api/users/', userRoutes);
 
+//ticker routes
+const ticketRoutes = require('./Routes/TicketRoutes');
+app.use('/api/tickets/', ticketRoutes);
+
 const port = 5000;
 
 app.listen(port,()=>{

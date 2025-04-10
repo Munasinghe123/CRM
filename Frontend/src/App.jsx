@@ -20,6 +20,10 @@ import FinancialPlaner from './Components/FinancialPlaner';
 //mortgageBroker pages
 import MortgageBroker from './Components/MortgageBroker';
 
+//financial planer and mortgage broker pages
+import CreateTicket from './Components/CreateTicket';
+import ViewTickets from './Components/ViewTickets';
+import ViewTicketDetails from './Components/ViewTicketDetails';
 
 const App = () => {
   const { isAuthenticated, role } = useSelector((state) => state.user);
@@ -54,6 +58,14 @@ const App = () => {
         <Route path='/mortgageBroker' element={<MortgageBroker/>}/>
       )}
 
+      {/*financial planner and mortage broker*/}
+      {isAuthenticated && ( role ==='financial_planner'|| role ==='mortgage_broker')&& (
+        <>
+          <Route path="/createTicket" element={<CreateTicket />} />
+          <Route path="/viewTickets" element={<ViewTickets />} />
+          <Route path="/viewTicketDetails/:id" element={<ViewTicketDetails />} />
+        </> 
+      )}
 
     </Routes>
     </>

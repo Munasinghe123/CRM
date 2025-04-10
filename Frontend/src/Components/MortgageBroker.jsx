@@ -1,9 +1,13 @@
+import { useSelector } from "react-redux";
 
 function MortgageBroker() {
+
+  const { user } = useSelector((state) => state.user);
+
   return (
     <div>
-      <h1>Mortgage Broker</h1>
-      <p>Welcome to the Mortgage Broker page!</p>
+      <h1>Mortgage Broker Dashboard</h1>
+      <p>Welcome {user.name}! </p>
     </div>
   );
 }
