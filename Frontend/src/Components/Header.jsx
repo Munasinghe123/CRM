@@ -22,6 +22,7 @@ function Header(){
     }
     return(
         <>
+        <Link to='/register'>Register users</Link>
             {isAuthenticated ?
             (<button onClick={handleLogout}>Logout</button>):
             (<Link to='/login'><button>Login</button></Link>) }    

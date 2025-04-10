@@ -12,6 +12,7 @@ import ForgotPassword from './Components/ForgotPassword'
 
 //Admin only pages
 import AdminDashboard from './Components/AdminDashBoard';
+import Register from './Components/Register';
 
 //financial planer pages
 import FinancialPlaner from './Components/FinancialPlaner';
@@ -37,7 +38,10 @@ const App = () => {
 
       {/* Admin Routes */}
       {isAuthenticated && role === 'admin' && (
-        <Route path="/admin" element={<AdminDashboard />} />
+        <>
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/register" element={<Register />} />
+        </>
       )}
 
       {/* Financial Planner Routes */}
