@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { loginSuccess } from '../Redux/UserSlice';
 
 function Login() {
@@ -69,6 +69,8 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        <Link to='/forgotPassword'><button>Forgot password</button></Link>
 
         <button type="submit">Login</button>
       </form>

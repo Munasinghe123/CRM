@@ -1,10 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { logout } from "../Redux/UserSlice";
 
-function Header(){
 
+
+function Header(){
+    const {isAuthenticated} = useSelector((state) => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -13,14 +15,16 @@ function Header(){
           await axios.post('http://localhost:5000/api/users/logout', {}, { withCredentials: true });
           dispatch(logout());
           console.log("Logged out, navigating to /");
-          navigate('/',{ replace: true });
+          navigate('/');
         } catch (err) {
           console.error("Logout failed:", err);
         }
     }
     return(
         <>
-            <button onClick={handleLogout}>Logout</button>
+            {isAuthenticated ?
+            (<button onClick={handleLogout}>Logout</button>):
+            (<Link to='/login'><button>Login</button></Link>) }    
         </>
     )
 

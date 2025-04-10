@@ -8,6 +8,7 @@ import AuthChecker from './Auth/AuthChecker';
 import Login from './Components/Login';
 import LandingPage from './Components/LandingPage';
 import Header from './Components/Header';
+import ForgotPassword from './Components/ForgotPassword'
 
 //Admin only pages
 import AdminDashboard from './Components/AdminDashBoard';
@@ -32,6 +33,7 @@ const App = () => {
       {/* Public Routes */}
       {<Route path="/" element={<LandingPage />} />}
       {!isAuthenticated && <Route path="/login" element={<Login/>} />}
+      {!isAuthenticated && <Route path="/forgotPassword" element={<ForgotPassword/>} />}
 
       {/* Admin Routes */}
       {isAuthenticated && role === 'admin' && (

@@ -81,6 +81,29 @@ const getCurrentUser = (req, res) => {
     }
 };
 
+const forgotPassword = (req, res) => {
+    const { name, newPassword } = req.body;
+  
+    if (!name || !newPassword) {
+      return res.status(400).json({ message: 'Please fill in all fields' });
+    }
+  
+    const hashedPassword = bcrypt.hashSync(newPassword, 10);
+  
+    const sql = 'UPDATE users SET password = ? WHERE name = ?';
+    db.query(sql, [hashedPassword, name], (err, result) => {
+      if (err) {
+        console.error('Error updating password:', err);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json({ message: 'Password updated successfully' });
+    });
+  };
 
 
-module.exports={registerUser,loginUser,getCurrentUser,logoutUser}
+
+module.exports={registerUser,loginUser,getCurrentUser,logoutUser,forgotPassword}
