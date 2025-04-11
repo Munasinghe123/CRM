@@ -1,29 +1,30 @@
 import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-//token checker
+//token checker when refreshing the page
 import AuthChecker from './Auth/AuthChecker';
 
 //open pages
-import Login from './Components/Login';
-import LandingPage from './Components/LandingPage';
-import Header from './Components/Header';
-import ForgotPassword from './Components/ForgotPassword'
+import Login from './Components/Login/Login';
+import LandingPage from './Components/LandingPage/LandingPage';
+import Header from './Components/Header/Header';
+import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
+import Footer from './Components/Footer/Footer';
 
 //Admin only pages
-import AdminDashboard from './Components/AdminDashBoard';
-import Register from './Components/Register';
+import AdminDashboard from './Components/AdminDashBoard/AdminDashBoard';
+import Register from './Components/Register/Register';
 
 //financial planer pages
-import FinancialPlaner from './Components/FinancialPlaner';
+import FinancialPlaner from './Components/FinancialPlanner/FinancialPlaner';
 
 //mortgageBroker pages
-import MortgageBroker from './Components/MortgageBroker';
+import MortgageBroker from './Components/MortgageBroker/MortgageBroker';
 
 //financial planer and mortgage broker pages
-import CreateTicket from './Components/CreateTicket';
-import ViewTickets from './Components/ViewTickets';
-import ViewTicketDetails from './Components/ViewTicketDetails';
+import CreateTicket from './Components/CreateTicket/CreateTicket';
+import ViewTickets from './Components/ViewTickets/ViewTickets';
+import ViewTicketDetails from './Components/ViewTicketDetails/ViewTicketDetails';
 
 const App = () => {
   const { isAuthenticated, role } = useSelector((state) => state.user);
@@ -68,6 +69,7 @@ const App = () => {
       )}
 
     </Routes>
+    <Footer/>
     </>
    
   );

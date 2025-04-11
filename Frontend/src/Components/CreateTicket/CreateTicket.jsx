@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react';
 import axios from 'axios';
+import './CreateTicket.css';
 
 function CreateTicket() {
     const [serialNumber, setSerialNumber] = useState('');
@@ -54,67 +55,66 @@ function CreateTicket() {
     };
 
     return (
-        <form onSubmit={createTicket}>
+        <div className="register-container">
+          <form onSubmit={createTicket} className="register-form">
             {message && <p>{message}</p>}
             {error && <p>{error}</p>}
-
-            <label>Serial number</label>
+      
+            <label>Serial Number</label>
             <input
-                type="text"
-                placeholder="Serial Number"
-                value={serialNumber}
-                onChange={(e) => setSerialNumber(e.target.value)}
+              type="text"
+              placeholder="Serial Number"
+              value={serialNumber}
+              onChange={(e) => setSerialNumber(e.target.value)}
             />
-
+      
             <label>Client Name</label>
             <input
-                type="text"
-                placeholder="Client Name"
-                value={clientName}
-                onChange={(e) => setClientName(e.target.value)}
+              type="text"
+              placeholder="Client Name"
+              value={clientName}
+              onChange={(e) => setClientName(e.target.value)}
             />
-
+      
             <label>Client Address</label>
             <textarea
-                placeholder="Client Address"
-                value={clientAddress}
-                onChange={(e) => setClientAddress(e.target.value)}
+              placeholder="Client Address"
+              value={clientAddress}
+              onChange={(e) => setClientAddress(e.target.value)}
             />
-
+      
             <label>Client Contact Details</label>
             <input
-                type="text"
-                placeholder="Client Contact Details"
-                value={clientContactDetails}
-                onChange={(e) => setClientContactDetails(e.target.value)}
+              type="text"
+              placeholder="Client Contact Details"
+              value={clientContactDetails}
+              onChange={(e) => setClientContactDetails(e.target.value)}
             />
-
+      
             <label>Amount</label>
             <input
-                type="number"
-                placeholder="Amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+              type="number"
+              placeholder="Amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
             />
-
-            <label>Assigned to</label>
+      
+            <label>Assigned To</label>
             <select
-                value={assignedTo}
-                onChange={(e) => setAssignedTo(e.target.value)}
+              value={assignedTo}
+              onChange={(e) => setAssignedTo(e.target.value)}
             >
-               {filteredUsers.map((user)=>{
-                    return(
-                       <option key={user.id} value={user.id}>
-                            {user.role}-{user.name}
-                       </option>
-                        
-                    )
-               })}
-               
+              {filteredUsers.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.role}-{user.name}
+                </option>
+              ))}
             </select>
+      
             <button type="submit">Create Ticket</button>
-        </form>
-    );
+          </form>
+        </div>
+      );
 }
 
 export default CreateTicket;

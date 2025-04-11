@@ -1,0 +1,47 @@
+.financial-planner-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #1e3c72, #2a5298);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .dashboard-content {
+    background-color: #1e293b;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .financial-planner-dashboard-container h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  .financial-planner-dashboard-container p {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header-link {
+    text-decoration: none;
+    color: #333;
+    background-color: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  
+  .header-link:hover {
+    background-color: #ff6600;
+    color: white;
+  }

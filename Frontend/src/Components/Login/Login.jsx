@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate,Link } from "react-router-dom";
-import { loginSuccess } from '../Redux/UserSlice';
+import { loginSuccess } from '../../Redux/UserSlice';
+import './Login.css';
 
 function Login() {
   const [name, setUsername] = useState("");
@@ -49,14 +50,15 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="login-container">
       <h1>Login</h1>
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm} className="login-form">
         <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
           value={name}
+          placeholder="Enter your username"
           onChange={(e) => setUsername(e.target.value)}
           required
         />
@@ -66,15 +68,16 @@ function Login() {
           type="password"
           id="password"
           value={password}
+          placeholder="Enter your password"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <Link to='/forgotPassword'><button>Forgot password</button></Link>
+        <Link to='/forgotPassword' className="forgot-link">Forgot password?</Link>
 
         <button type="submit">Login</button>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
+import './ViewTicketDetails.css';
 
 function ViewTicketDetails() {
 
@@ -27,17 +28,19 @@ function ViewTicketDetails() {
     },[id])
 
 
-  return (
-    <div className="ticket-details">
-      <h2>Ticket Details</h2>
-      <p><strong>ID:</strong> {ticket.id}</p>
-      <p><strong>Serial number:</strong> {ticket.serial_number}</p>
-      <p><strong>Client name:</strong> {ticket.client_name}</p>
-      <p><strong>Client address:</strong> {ticket.client_address}</p>
-      <p><strong>Client contact:</strong> {ticket.client_contact}</p>
-      <p><strong>Amount: {ticket.amount}</strong></p>
-    </div>
-  );
+    return (
+      <div className="ticket-details">
+        <div className="ticket-details-content">
+          <h2>Ticket Details</h2>
+          <p><strong>ID:</strong> {ticket.id}</p>
+          <p><strong>Serial number:</strong> {ticket.serial_number}</p>
+          <p><strong>Client name:</strong> {ticket.client_name}</p>
+          <p><strong>Client address:</strong> {ticket.client_address}</p>
+          <p><strong>Client contact:</strong> {ticket.client_contact}</p>
+          <p><strong>Amount:</strong> {ticket.amount}</p>
+        </div>
+      </div>
+    )
 }
 
 export default ViewTicketDetails;

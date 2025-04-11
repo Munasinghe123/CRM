@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import './ForgotPassword.css'; 
 
 function ForgotPassword() {
   const [name, setName] = useState('');
@@ -21,7 +22,7 @@ function ForgotPassword() {
   };
 
   return (
-    <div>
+    <div className="forgot-password-container">
       <h2>Forgot Password</h2>
       <form onSubmit={handleReset}>
         <input
